@@ -6,7 +6,7 @@ import {
   buttonContexts,
 } from '../../../stories-theme.js';
 
-import { LocaleDecorator } from '../../../stories-utils.js';
+import { LocaleDecorator, FormDecorator } from '../../../stories-utils.js';
 import './dt-button.js';
 
 export default {
@@ -36,6 +36,7 @@ const Template = args => {
     <dt-button
       .context="${args.context}"
       type="${args.type}"
+      buttonStyle="${args.buttonStyle}"
       ?outline="${args.outline}"
       ?rounded="${args.rounded}"
       .href="${args.href}"
@@ -126,3 +127,10 @@ WithConfrimationMessage.args = {
   context: 'alert',
   confirm: 'Are you sure you want to do this?',
 };
+
+export const FormSubmit = Template.bind({});
+FormSubmit.decorators = [FormDecorator];
+FormSubmit.args = {
+  context: 'primary',
+  type: 'submit',
+}
